@@ -6,7 +6,7 @@
 /*   By: dlobos-m <dlobos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 19:41:20 by dlobos-m          #+#    #+#             */
-/*   Updated: 2019/12/09 19:52:09 by dlobos-m         ###   ########.fr       */
+/*   Updated: 2019/12/10 13:51:21 by dlobos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,9 @@ int		print_line(char **file, char **line)
 	*line = ft_substr(*file, 0, x);
 	if ((*file)[x] == '\n')
 		temp = ft_strdup(ft_strchr(*file, '\n') + 1);
-	else
-	{
-		free(*file);
-		*file = temp;
-		return (0);
-	}
 	free(*file);
 	*file = temp;
-	return (1);
+	return (!temp ? 0 : 1);
 }
 
 int		get_next_line(int fd, char **line)
